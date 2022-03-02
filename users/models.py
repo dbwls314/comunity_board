@@ -7,7 +7,7 @@ class User(TimeStampModel):
     profile_image_url = models.ImageField(max_length=200)
     description = models.TextField()
     kakao_id = models.IntegerField()
-    email = models.CharField(max_length=500)
+    email = models.CharField(max_length=500, unique=True)
 
     class Meta:
         db_table = 'users'
