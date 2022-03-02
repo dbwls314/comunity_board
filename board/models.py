@@ -10,6 +10,7 @@ class Category(models.Model):
         db_table = 'categories'
 
 class Post(TimeStampModel):
+    title = models.CharField(max_length=100)
     content = models.TextField()
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     category = models.ForeignKey('Category', on_delete=models.CASCADE)

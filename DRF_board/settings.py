@@ -48,6 +48,7 @@ INSTALLED_APPS = [
     'board',
     'core',
     'users',
+    'django_extensions',
 ]
 
 MIDDLEWARE = [
