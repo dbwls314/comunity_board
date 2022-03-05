@@ -3,8 +3,8 @@ from users.models import User
 from core.models import TimeStampModel
 
 class Category(models.Model):
-    category = models.CharField(max_length=100)
-    main_category = models.ForeignKey('self', on_delete=models.CASCADE, related_name='Main_category')
+    category = models.CharField(max_length=100, unique=True)
+    main_category = models.ForeignKey('self', on_delete=models.CASCADE, related_name='Main_category', null=True)
     
     class Meta:
         db_table = 'categories'
