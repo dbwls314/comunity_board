@@ -4,7 +4,7 @@ from core.models import TimeStampModel
 
 class Category(models.Model):
     category = models.CharField(max_length=100)
-    main_category = models.ForeignKey('self', on_delete=models.CASCADE, related_name='Category')
+    main_category = models.ForeignKey('self', on_delete=models.CASCADE, related_name='Main_category')
     
     class Meta:
         db_table = 'categories'
@@ -14,8 +14,8 @@ class Post(TimeStampModel):
     content = models.TextField()
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     category = models.ForeignKey('Category', on_delete=models.CASCADE)
-    read_count = models.IntegerField()
-
+    read_count = models.IntegerField(default=0)
+    
     class Meta:
         db_table = 'posts'
 
