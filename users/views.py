@@ -18,7 +18,7 @@ def get_kakao_user(access_token):
         return response.json()
 
     elif response.status_code == 401:
-        return JsonResponse({'message': 'UnAutorized'}, status=status.HTTP_401_UNAUTHORIZED)
+        return JsonResponse({'message': 'Authorization'}, status=status.HTTP_401_UNAUTHORIZED)
 
     else:
         return JsonResponse({'message': 'ResponseError'}, status=status.HTTP_400_BAD_REQUEST)

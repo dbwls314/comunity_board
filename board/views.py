@@ -27,20 +27,15 @@ class BoardView(View):
         '''
 
         data = json.loads(request.body)
-        category = Category.objects.get(id = data['category_id'])
+
         title = data['title']
         content = data['content']
-        category_id = category
-
-        print("5", title)
-        print("6", content)
-        print("5", category_id)
-        print("7", request.user.id)
+        category = Category.objects.get(id = data['category_id'])
 
         Post.objects.create(
             title=title,
             content=content,
             user=request.user,
-            category=category_id
+            category=category
         )
-        return JsonResponse({"message": "post create"}, status=201)
+        return JsonResponse({"message": "posting create"}, status=201)
